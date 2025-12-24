@@ -1,20 +1,33 @@
 package com.data
 
-class Item {
-    private val itemList: ArrayList<ItemData> = arrayListOf()
+// TODO: Find a way to test for negative price values before creating an instance
 
-    data class ItemData(
-        private val name: String,
-        private val price: Float,
-        private val category: Category,
-        private val store: Store,
-    )
-
-    fun new(name: String, price: Float, category: Category, store: Store) {
-        itemList.add(ItemData(name, price, category, store))
+data class Item(private val name: String, private var price: Double, private val category: Category,
+                private val store: Store) {
+    private var checked: Boolean = false
+    fun getName(): String {
+        return this.name
     }
 
-    fun getItems(): ArrayList<ItemData> {
-        return itemList
+    fun getPrice(): Double {
+        return this.price
+    }
+    fun setPrice(newPrice: Double) {
+        this.price = newPrice
+    }
+
+    fun getCategory(): Category {
+        return this.category
+    }
+
+    fun getStore(): Store {
+        return this.store
+    }
+
+    fun isChecked(): Boolean {
+        return this.checked
+    }
+    fun check() {
+        this.checked = !this.checked
     }
 }
