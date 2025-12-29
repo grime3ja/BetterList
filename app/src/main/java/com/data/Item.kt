@@ -1,10 +1,13 @@
 package com.data
 
-// TODO: Find a way to test for negative price values before creating an instance
-
 data class Item(private val name: String, private var price: Double, private val category: Category,
                 private val store: Store) {
     private var checked: Boolean = false
+
+    init {
+        require(this.price >= 0)
+    }
+
     fun getName(): String {
         return this.name
     }
@@ -13,6 +16,7 @@ data class Item(private val name: String, private var price: Double, private val
         return this.price
     }
     fun setPrice(newPrice: Double) {
+        require(newPrice >= 0)
         this.price = newPrice
     }
 
