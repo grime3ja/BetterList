@@ -42,4 +42,11 @@ class GroceryListTest {
         assertTrue(list.isItemChecked("Rice"))
         assertFalse(list.isItemChecked("Chicken"))
     }
+
+    @Test
+    fun editDistanceTest() {
+        assertEquals(4, GroceryList.editDistance("Chicken", "Rice"))
+        assertEquals(4, GroceryList.editDistance("Ball", "Rice"))
+        assertEquals(7, GroceryList.editDistance("Ball", "Chicken"))
+    }
 }
